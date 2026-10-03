@@ -1,0 +1,229 @@
+.about-page{
+
+    width:100%;
+    min-height:100vh;
+    background:#f6f9fc;
+    color:#1e293b;
+
+}
+
+/* HERO */
+
+.about-hero{
+
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    color:white;
+
+}
+
+.about-hero h1{
+
+    font-size:46px;
+    margin-bottom:20px;
+
+}
+
+.about-hero p{
+
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+
+}
+
+/* SECTION */
+
+.about-section{
+
+    max-width:1100px;
+    margin:70px auto;
+    padding:0 20px;
+
+}
+
+.about-left h2{
+
+    font-size:34px;
+    color:#0f172a;
+    margin-bottom:20px;
+
+}
+
+.about-left p{
+
+    font-size:17px;
+    line-height:1.9;
+    color:#475569;
+    margin-bottom:18px;
+
+}
+
+/* FEATURES */
+
+.feature-section{
+
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px 70px;
+
+}
+
+.feature-section h2{
+
+    text-align:center;
+    font-size:34px;
+    margin-bottom:45px;
+
+}
+
+.feature-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+
+}
+
+.feature-card{
+
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.feature-card svg{
+
+    font-size:45px;
+    color:#2563eb;
+    margin-bottom:18px;
+
+}
+
+.feature-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.feature-card p{
+
+    color:#64748b;
+    line-height:1.7;
+
+}
+
+/* WORKFLOW */
+
+.workflow{
+
+    padding:70px 20px;
+    background:white;
+
+}
+
+.workflow h2{
+
+    text-align:center;
+    margin-bottom:40px;
+    font-size:34px;
+
+}
+
+.workflow-box{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+
+}
+
+.workflow-box div{
+
+    background:#2563eb;
+    color:white;
+    padding:18px 28px;
+    border-radius:12px;
+    font-weight:600;
+
+}
+
+.workflow-box span{
+
+    font-size:28px;
+    color:#2563eb;
+
+}
+
+/* TECH */
+
+.tech-section{
+
+    padding:80px 20px;
+
+}
+
+.tech-section h2{
+
+    text-align:center;
+    margin-bottom:35px;
+    font-size:34px;
+
+}
+
+.tech-grid{
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+
+}
+
+.tech-grid span{
+
+    background:white;
+    padding:15px 28px;
+    border-radius:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    font-weight:600;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.about-hero h1{
+
+font-size:34px;
+
+}
+
+.workflow-box{
+
+flex-direction:column;
+
+}
+
+.workflow-box span{
+
+transform:rotate(90deg);
+
+}
+
+}

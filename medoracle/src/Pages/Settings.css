@@ -1,0 +1,253 @@
+.settings-page{
+    width:100%;
+    min-height:100vh;
+    background:#f4f7fb;
+    padding:30px;
+    box-sizing:border-box;
+}
+
+.settings-card{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    border-radius:18px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+/* ==========================
+        HEADER
+========================== */
+
+.settings-header{
+    padding:30px;
+    border-bottom:1px solid #e2e8f0;
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+}
+
+.settings-header h2{
+    color:#fff;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.settings-header p{
+    color:#dbeafe;
+    font-size:15px;
+}
+
+/* ==========================
+        SECTION
+========================== */
+
+.settings-section{
+    padding:28px 30px;
+    border-bottom:1px solid #edf2f7;
+}
+
+.settings-section h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    color:#1e293b;
+    margin-bottom:22px;
+}
+
+/* ==========================
+      ACCOUNT INFO
+========================== */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.info-box{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    background:#f8fafc;
+    transition:.3s;
+}
+
+.info-box:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.info-box svg{
+    font-size:24px;
+    color:#2563eb;
+}
+
+.info-box span{
+    display:block;
+    color:#64748b;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.info-box h4{
+    color:#0f172a;
+    font-size:16px;
+    font-weight:600;
+}
+
+/* ==========================
+        PASSWORD
+========================== */
+
+.password-form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.password-form input{
+    width:100%;
+    height:48px;
+    padding:0 15px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.password-form input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.save-btn{
+    width:220px;
+    height:48px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.save-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================
+      PREFERENCES
+========================== */
+
+.preference-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    margin-bottom:14px;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    background:#f8fafc;
+}
+
+.preference-box h4{
+    color:#0f172a;
+    margin-bottom:5px;
+}
+
+.preference-box p{
+    color:#64748b;
+    font-size:14px;
+}
+
+.preference-box input{
+    width:18px;
+    height:18px;
+}
+
+.coming-icon{
+    color:#94a3b8;
+    font-size:22px;
+}
+
+/* ==========================
+        LOGOUT
+========================== */
+
+.logout-section{
+    padding:30px;
+}
+
+.logout-section h3{
+    color:#dc2626;
+    margin-bottom:8px;
+}
+
+.logout-section p{
+    color:#64748b;
+    margin-bottom:18px;
+}
+
+.logout-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:220px;
+    height:48px;
+    border:none;
+    border-radius:10px;
+    background:#ef4444;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    background:#dc2626;
+}
+
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.settings-page{
+    padding:18px;
+}
+
+.settings-card{
+    border-radius:14px;
+}
+
+.settings-header,
+.settings-section,
+.logout-section{
+    padding:20px;
+}
+
+.info-grid{
+    grid-template-columns:1fr;
+}
+
+.save-btn,
+.logout-btn{
+    width:100%;
+}
+
+}

@@ -1,0 +1,266 @@
+.reports-page{
+    padding:28px;
+    background:#f4f7fc;
+    min-height:100vh;
+}
+
+.reports-header{
+    background:#fff;
+    border-radius:18px;
+    padding:25px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.reports-header h1{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#1e3a8a;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.reports-header p{
+    color:#64748b;
+}
+
+.report-count{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:white;
+    width:170px;
+    height:110px;
+    border-radius:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.report-count span{
+    font-size:15px;
+}
+
+.report-count h2{
+    font-size:42px;
+    margin-top:5px;
+}
+
+.search-wrapper{
+    background:white;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 22px;
+    border-radius:15px;
+    margin-bottom:22px;
+    box-shadow:0 8px 18px rgba(0,0,0,.06);
+}
+
+.search-icon{
+    color:#2563eb;
+    font-size:18px;
+}
+
+.search-box{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+.table-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.reports-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.reports-table thead{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+}
+
+.reports-table th{
+    color:white;
+    padding:18px;
+    text-align:left;
+    font-size:15px;
+}
+
+.reports-table td{
+    padding:20px 18px;
+    border-bottom:1px solid #edf2f7;
+    vertical-align:top;
+}
+
+.reports-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+.patient-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.patient-avatar{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.patient-info h4{
+    margin:0;
+}
+
+.patient-info p{
+    color:#64748b;
+    margin-top:3px;
+}
+
+.ai-preview{
+    max-width:320px;
+    color:#475569;
+    line-height:1.6;
+    white-space:pre-wrap;
+    word-break:break-word;
+}
+
+.view-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#1d4ed8;
+}
+
+.no-data{
+    text-align:center;
+    padding:50px;
+    color:#64748b;
+}
+
+.report-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.report-modal-content{
+    width:850px;
+    max-width:95%;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.modal-header{
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 24px;
+}
+
+.modal-header h2{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.close-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.modal-body{
+    padding:25px;
+}
+
+.modal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.report-section{
+    margin-top:20px;
+}
+
+.report-section h3{
+    color:#2563eb;
+    margin-bottom:12px;
+}
+
+.ai-report-full{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:12px;
+    max-height:350px;
+    overflow:auto;
+}
+
+.ai-report-full pre{
+    white-space:pre-wrap;
+    word-break:break-word;
+    font-family:inherit;
+}
+
+@media(max-width:768px){
+
+.reports-page{
+    padding:15px;
+}
+
+.reports-header{
+    flex-direction:column;
+    gap:20px;
+    align-items:flex-start;
+}
+
+.table-card{
+    overflow:auto;
+}
+
+.reports-table{
+    min-width:950px;
+}
+
+.modal-grid{
+    grid-template-columns:1fr;
+}
+
+}
