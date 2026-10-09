@@ -33,8 +33,50 @@
 
     text-align:center;
     color:#64748b;
-    margin-bottom:30px;
+    margin-bottom:20px;
 
+}
+
+.signup-role-selector {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto 25px auto;
+    background: #e2e8f0;
+    border-radius: 12px;
+    padding: 4px;
+    gap: 6px;
+}
+
+.signup-role-tab {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.signup-role-tab.active {
+    background: #0f4c81;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(15, 76, 129, 0.25);
+}
+
+.login-link-container {
+    margin-top: 22px;
+    text-align: center;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.login-link-container a {
+    color: #0f4c81;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .form-grid{

@@ -69,34 +69,9 @@ const startServer = async () => {
   try {
     await sequelize.authenticate();
     await sequelize.sync();
-    console.log("✅ Database Connected (MySQL)");
+    console.log(`✅ Database Connected & Synced (${sequelize.getDialect().toUpperCase()})`);
   } catch (err) {
-    console.log("⚠️ MySQL connection failed. Initializing SQLite fallback...");
-    try {
-      const { Sequelize } = require("sequelize");
-      const sqliteSequelize = new Sequelize({
-        dialect: "sqlite",
-        storage: path.join(__dirname, "database.sqlite"),
-        logging: false
-      });
-
-      const User = require("./models/User");
-      const ClinicalAI = require("./models/ClinicalAI");
-      const Patient = require("./models/Patient");
-      const Appointment = require("./models/Appointment");
-      const Report = require("./models/Report");
-
-      const models = [User, ClinicalAI, Patient, Appointment, Report];
-      for (const model of models) {
-        if (model.sequelize) {
-          model.sequelize = sqliteSequelize;
-        }
-      }
-      await sqliteSequelize.sync();
-      console.log("✅ Database Connected & Synced (SQLite Fallback)");
-    } catch (sqliteErr) {
-      console.log("⚠️ SQLite fallback notice:", sqliteErr.message);
-    }
+    console.error("❌ Database Connection/Sync Error:", err.message);
   }
 
   const PORT = process.env.PORT || 5000;

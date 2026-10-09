@@ -1,14 +1,16 @@
 const { Sequelize } = require("sequelize");
 const path = require("path");
+require("dotenv").config();
 
-const dialect = process.env.DB_DIALECT || "mysql";
+const dialect = process.env.DB_DIALECT || "sqlite";
+const dbPath = path.join(__dirname, "../database.sqlite");
 
 let sequelize;
 
 if (dialect === "sqlite") {
   sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: path.join(__dirname, "../database.sqlite"),
+    storage: dbPath,
     logging: false
   });
 } else {

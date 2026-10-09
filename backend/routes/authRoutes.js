@@ -17,7 +17,8 @@ const {
   fullName,
   email,
   password,
-  specialization
+  specialization,
+  role
 } = req.body;
 
 // CHECK USER
@@ -46,12 +47,19 @@ const user = await User.create({
   fullName,
   email,
   password: hashedPassword,
-  specialization
+  specialization: specialization || "",
+  role: role || "doctor"
 
 });
 
 res.status(201).json({
-  message: "Signup Successful"
+  message: "Signup Successful",
+  user: {
+    id: user.id,
+    fullName: user.fullName,
+    email: user.email,
+    role: user.role
+  }
 });
 
 
