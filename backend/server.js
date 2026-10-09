@@ -30,7 +30,8 @@ const app = express();
 const defaultAllowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "http://127.0.0.1:5173"
+  "http://127.0.0.1:5173",
+  "https://medoracle-jcbh.vercel.app"
 ];
 
 const envOrigins = process.env.FRONTEND_URL
@@ -54,8 +55,8 @@ app.use(
         return callback(null, true);
       }
 
-      // In production, check against allowedOrigins
-      if (allowedOrigins.includes(origin)) {
+      // In production, check against allowedOrigins or any *.vercel.app domain
+      if (allowedOrigins.includes(origin) || origin.endsWith(".vercel.app")) {
         return callback(null, true);
       }
 

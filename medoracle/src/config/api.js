@@ -1,8 +1,17 @@
 // Centralized API and Backend URL configuration
-// In production (Vercel), set VITE_API_BASE_URL=https://<your-render-backend-url>
-// In local development, defaults to http://localhost:5000
+// Automatically connects to Render in production and localhost:5000 in local development
 
-const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const isProduction =
+  import.meta.env.PROD ||
+  (typeof window !== "undefined" &&
+    window.location.hostname !== "localhost" &&
+    window.location.hostname !== "127.0.0.1");
+
+const defaultUrl = isProduction
+  ? "https://medoracle-backend.onrender.com"
+  : "http://localhost:5000";
+
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || defaultUrl;
 
 // Ensure no trailing slash
 export const API_BASE_URL = rawBaseUrl.replace(/\/+$/, "");
