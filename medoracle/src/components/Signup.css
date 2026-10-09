@@ -1,110 +1,53 @@
 .signup-page{
-
     min-height:100vh;
     background:#f4f8fb;
     display:flex;
     justify-content:center;
     align-items:center;
     padding:40px;
-
 }
 
 .signup-card{
-
     width:100%;
     max-width:900px;
     background:#fff;
     border-radius:18px;
     padding:35px;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
-
 }
 
 .signup-card h1{
-
     text-align:center;
     color:#0f4c81;
     font-size:32px;
     margin-bottom:10px;
-
 }
 
 .signup-card p{
-
     text-align:center;
     color:#64748b;
-    margin-bottom:20px;
-
-}
-
-.signup-role-selector {
-    display: flex;
-    max-width: 400px;
-    margin: 0 auto 25px auto;
-    background: #e2e8f0;
-    border-radius: 12px;
-    padding: 4px;
-    gap: 6px;
-}
-
-.signup-role-tab {
-    flex: 1;
-    padding: 10px 12px;
-    border: none;
-    background: transparent;
-    color: #475569;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.signup-role-tab.active {
-    background: #0f4c81;
-    color: #ffffff;
-    box-shadow: 0 3px 8px rgba(15, 76, 129, 0.25);
-}
-
-.login-link-container {
-    margin-top: 22px;
-    text-align: center;
-    color: #64748b;
-    font-size: 15px;
-}
-
-.login-link-container a {
-    color: #0f4c81;
-    font-weight: 600;
-    text-decoration: none;
+    margin-bottom:30px;
 }
 
 .form-grid{
-
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
-
 }
 
 .input-group{
-
     display:flex;
     flex-direction:column;
-
 }
 
 .input-group label{
-
     margin-bottom:8px;
     color:#334155;
     font-weight:600;
-
 }
 
 .input-group input,
 .input-group select{
-
     height:50px;
     border:1px solid #d6dee8;
     border-radius:10px;
@@ -113,25 +56,19 @@
     outline:none;
     transition:.3s;
     background:#fff;
-
 }
 
 .input-group input:focus,
 .input-group select:focus{
-
     border-color:#0f4c81;
     box-shadow:0 0 0 3px rgba(15,76,129,.12);
-
 }
 
 .full-width{
-
     grid-column:1/3;
-
 }
 
 .signup-submit{
-
     width:100%;
     height:52px;
     margin-top:28px;
@@ -143,33 +80,20 @@
     font-weight:600;
     cursor:pointer;
     transition:.3s;
-
 }
 
 .signup-submit:hover{
-
     background:#0b3b64;
-
 }
 
 @media(max-width:768px){
-
-.form-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.full-width{
-
-    grid-column:auto;
-
-}
-
-.signup-card{
-
-    padding:25px;
-
-}
-
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+    .full-width{
+        grid-column:auto;
+    }
+    .signup-card{
+        padding:25px;
+    }
 }

@@ -8,14 +8,12 @@ import { API_BASE_URL } from "../config/api";
 function Login() {
   const navigate = useNavigate();
 
-  const [selectedRole, setSelectedRole] = useState("doctor");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   // HANDLE CHANGE
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -24,17 +22,13 @@ function Login() {
   };
 
   // HANDLE LOGIN
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
         `${API_BASE_URL}/api/auth/login`,
-        {
-          ...formData,
-          requestedRole: selectedRole
-        }
+        formData
       );
 
       // SAVE TOKEN
@@ -44,13 +38,12 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       // SAVE ROLE
-      const userRole = response.data.user.role || selectedRole;
-      localStorage.setItem("role", userRole);
+      localStorage.setItem("role", response.data.user?.role || "doctor");
 
-      alert(response.data.message || `${userRole.toUpperCase()} Login Successful!`);
+      alert(response.data.message || "Login Successful");
 
-      // REDIRECT BASED ON ROLE
-      if (userRole === "admin") {
+      // REDIRECT
+      if (response.data.user?.role === "admin") {
         navigate("/admin-dashboard");
       } else {
         navigate("/dashboard");
@@ -70,50 +63,16 @@ function Login() {
     <div className="login-page">
       <div className="login-card">
         <h1>Welcome Back</h1>
-        <p>Login to your MEDORACLE Account</p>
 
-        {/* ROLE SELECTION TABS */}
-        <div className="role-selector">
-          <button
-            type="button"
-            className={`role-tab ${selectedRole === "doctor" ? "active" : ""}`}
-            onClick={() => setSelectedRole("doctor")}
-          >
-            👨‍⚕️ Doctor Login
-          </button>
-          <button
-            type="button"
-            className={`role-tab ${selectedRole === "patient" ? "active" : ""}`}
-            onClick={() => setSelectedRole("patient")}
-          >
-            🧑‍🌾 Patient Login
-          </button>
-          <button
-            type="button"
-            className={`role-tab ${selectedRole === "admin" ? "active" : ""}`}
-            onClick={() => setSelectedRole("admin")}
-          >
-            🔐 Admin Login
-          </button>
-        </div>
-
-        <div className="role-badge">
-          Logging in as: <strong>{selectedRole.toUpperCase()}</strong>
-        </div>
+        <p>Login to continue to MEDORACLE</p>
 
         <form onSubmit={handleLogin} className="login-form">
           <div className="input-group">
-            <label>Email Address</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
-              placeholder={
-                selectedRole === "patient"
-                  ? "patient@email.com"
-                  : selectedRole === "admin"
-                  ? "admin@medoracle.com"
-                  : "doctor@email.com"
-              }
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -133,15 +92,12 @@ function Login() {
           </div>
 
           <button type="submit" className="login-submit">
-            Log In as {selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1)}
+            Login
           </button>
         </form>
 
         <div className="signup-link">
-          Don’t have an account?{" "}
-          <Link to={`/signup?role=${selectedRole}`}>
-            Sign Up as {selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1)}
-          </Link>
+          Don’t have an account? <Link to="/signup">Sign Up</Link>
         </div>
       </div>
     </div>

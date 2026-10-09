@@ -152,19 +152,11 @@ function DashboardNavbar() {
             <div>
 
               <h4>
-
-                {user.fullName || (user.role === "patient" ? "Patient" : user.role === "admin" ? "Admin" : "Doctor")}
-
+                {user.fullName || "Doctor"}
               </h4>
 
               <p>
-
-                {user.role === "patient"
-                  ? "Patient Portal"
-                  : user.role === "admin"
-                  ? "System Administrator"
-                  : (user.specialization || "Medical Specialist")}
-
+                {user.specialization || "Medical Specialist"}
               </p>
 
             </div>
