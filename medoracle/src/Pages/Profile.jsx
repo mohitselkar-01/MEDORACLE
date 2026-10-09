@@ -1,6 +1,7 @@
 import "./Profile.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL, getUploadUrl } from "../config/api";
 
 function Profile() {
 
@@ -21,7 +22,7 @@ function Profile() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/profile",
+        `${API_BASE_URL}/api/profile`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -83,8 +84,7 @@ function Profile() {
       setLoading(true);
 
       const res = await axios.put(
-
-        "http://localhost:5000/api/profile",
+        `${API_BASE_URL}/api/profile`,
 
         profile,
 
@@ -173,8 +173,7 @@ function Profile() {
     try {
 
       const res = await axios.post(
-
-        "http://localhost:5000/api/profile/upload-image",
+        `${API_BASE_URL}/api/profile/upload-image`,
 
         formData,
 
@@ -195,8 +194,7 @@ function Profile() {
       alert(res.data.message);
 
       const updated = await axios.get(
-
-        "http://localhost:5000/api/profile",
+        `${API_BASE_URL}/api/profile`,
 
         {
 
@@ -255,19 +253,11 @@ function Profile() {
         <div className="profile-image-section">
 
   <img
-
     src={
-
-      profile.profileImage
-
-        ? `http://localhost:5000/uploads/${profile.profileImage}`
-
-        : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
-
+      getUploadUrl(profile.profileImage) ||
+      "https://cdn-icons-png.flaticon.com/512/847/847969.png"
     }
-
     alt="profile"
-
   />
           <input
 

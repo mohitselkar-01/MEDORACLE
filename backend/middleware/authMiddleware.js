@@ -13,10 +13,11 @@ const authMiddleware = (req, res, next) => {
     }
 
     const token = authHeader.split(" ")[1];
+    const jwtSecret = process.env.JWT_SECRET || "medoracle_default_dev_secret_2026";
 
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET
+      jwtSecret
     );
 
     req.user = decoded;

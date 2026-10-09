@@ -1,6 +1,7 @@
 import "./Appointments.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 
 import {
   FaCheckCircle,
@@ -39,7 +40,7 @@ function Appointments() {
       setLoading(true);
 
       const res = await axios.get(
-        "http://localhost:5000/api/appointments",
+        `${API_BASE_URL}/api/appointments`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -87,7 +88,7 @@ function Appointments() {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/appointments/${editId}`,
+          `${API_BASE_URL}/api/appointments/${editId}`,
           form,
           {
             headers: {
@@ -99,7 +100,7 @@ function Appointments() {
         alert("Appointment Updated Successfully");
       } else {
         await axios.post(
-          "http://localhost:5000/api/appointments",
+          `${API_BASE_URL}/api/appointments`,
           form,
           {
             headers: {
@@ -172,7 +173,7 @@ function Appointments() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/appointments/${id}`,
+        `${API_BASE_URL}/api/appointments/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -200,7 +201,7 @@ function Appointments() {
   const approveAndAddPatient = async (id) => {
     try {
       const res = await axios.patch(
-        `http://localhost:5000/api/appointments/approve-add-patient/${id}`,
+        `${API_BASE_URL}/api/appointments/approve-add-patient/${id}`,
         {},
         {
           headers: {

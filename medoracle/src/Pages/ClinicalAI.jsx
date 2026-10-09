@@ -1,7 +1,8 @@
 import "./ClinicalAI.css";
 import { useState } from "react";
 import axios from "axios";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { API_BASE_URL } from "../config/api";
 
 
 
@@ -80,8 +81,7 @@ const generateOpinion = async () => {
     const token = localStorage.getItem("token");
 
     const res = await axios.post(
-
-      "http://localhost:5000/api/clinical",
+      `${API_BASE_URL}/api/clinical`,
 
       formData,
 

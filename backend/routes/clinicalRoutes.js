@@ -6,7 +6,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 const {
   generateClinicalOpinion,
-} = require("../controllers/clinicalController");
+} = require("../controllers/clinicalcontroller");
 
 // Generate Clinical AI Report (Only Logged-in Doctor)
 

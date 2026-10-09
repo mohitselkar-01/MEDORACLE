@@ -117,20 +117,17 @@ if(!isMatch){
 
 // JWT TOKEN
 
-const token = jwt.sign(
-
-  {
-    id: user.id,
-    email: user.email
-  },
-
-  process.env.JWT_SECRET,
-
-  {
-    expiresIn: "7d"
-  }
-
-);
+  const jwtSecret = process.env.JWT_SECRET || "medoracle_default_dev_secret_2026";
+  const token = jwt.sign(
+    {
+      id: user.id,
+      email: user.email
+    },
+    jwtSecret,
+    {
+      expiresIn: "7d"
+    }
+  );
 
 res.status(200).json({
 

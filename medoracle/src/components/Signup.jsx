@@ -2,6 +2,7 @@ import "./Signup.css";
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 
 function Signup() {
   const [searchParams] = useSearchParams();
@@ -36,7 +37,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        `${API_BASE_URL}/api/auth/signup`,
         {
           ...formData,
           role

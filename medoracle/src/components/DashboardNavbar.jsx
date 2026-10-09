@@ -14,6 +14,7 @@ import {
   FaChevronDown,
   FaSignOutAlt
 } from "react-icons/fa";
+import { getUploadUrl } from "../config/api";
 
 function DashboardNavbar() {
 
@@ -27,9 +28,7 @@ function DashboardNavbar() {
   // PROFILE IMAGE
   // =========================
 
-  const profileImage = user.profileImage
-    ? `http://localhost:5000/uploads/${user.profileImage}`
-    : null;
+  const profileImage = getUploadUrl(user.profileImage);
 
   // =========================
   // FIRST LETTER

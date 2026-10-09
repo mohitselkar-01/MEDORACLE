@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import axios from "axios";
+import { API_BASE_URL, getUploadUrl } from "../config/api";
 
 import {
   FaThLarge,
@@ -46,7 +47,7 @@ function Dashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard",
+        `${API_BASE_URL}/api/dashboard`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -115,9 +116,8 @@ function Dashboard() {
 
          <img
   src={
-    doctor?.profileImage
-      ? `http://localhost:5000/uploads/${doctor.profileImage}`
-      : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
+    getUploadUrl(doctor?.profileImage) ||
+    "https://cdn-icons-png.flaticon.com/512/847/847969.png"
   }
   alt="Doctor"
 />
@@ -1032,8 +1032,7 @@ function Dashboard() {
                 try {
 
                   await axios.patch(
-
-                    `http://localhost:5000/api/appointments/approve-add-patient/${appointment.id}`,
+                    `${API_BASE_URL}/api/appointments/approve-add-patient/${appointment.id}`,
 
                     {},
 

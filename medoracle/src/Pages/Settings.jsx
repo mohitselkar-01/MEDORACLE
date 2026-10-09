@@ -1,6 +1,7 @@
 import "./Settings.css";
 import { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -72,8 +73,7 @@ function Settings() {
       setLoading(true);
 
       const res = await axios.put(
-
-        "http://localhost:5000/api/auth/change-password",
+        `${API_BASE_URL}/api/auth/change-password`,
 
         form,
 
